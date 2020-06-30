@@ -61,24 +61,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label class="control-label" for="brand_id">Brand</label>
-                                            <select name="brand_id" id="brand_id" class="form-control @error('brand_id') is-invalid @enderror">
-                                                <option value="0">Select a brand</option>
-                                                @foreach($brands as $brand)
-                                                    @if ($product->brand_id == $brand->id)
-                                                        <option value="{{ $brand->id }}" selected>{{ $brand->name }}</option>
-                                                    @else
-                                                        <option value="{{ $brand->id }}">{{ $brand->name }}</option>
-                                                    @endif
-                                                @endforeach
-                                            </select>
-                                            <div class="invalid-feedback active">
-                                                <i class="fa fa-exclamation-circle fa-fw"></i> @error('brand_id') <span>{{ $message }}</span> @enderror
-                                            </div>
-                                        </div>
-                                    </div>
+
                                 </div>
                                 <div class="row">
                                     <div class="col-md-12">
@@ -125,7 +108,7 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-6">
+                                    <div class="col-md-12">
                                         <div class="form-group">
                                             <label class="control-label" for="quantity">Quantity</label>
                                             <input
@@ -141,19 +124,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label class="control-label" for="weight">Weight</label>
-                                            <input
-                                                class="form-control"
-                                                type="text"
-                                                placeholder="Enter product weight"
-                                                id="weight"
-                                                name="weight"
-                                                value="{{ old('weight', $product->weight) }}"
-                                            />
-                                        </div>
-                                    </div>
+
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label" for="description">Description</label>

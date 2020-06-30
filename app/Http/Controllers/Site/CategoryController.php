@@ -15,10 +15,19 @@ class CategoryController extends Controller
         $this->categoryRepository = $categoryRepository;
     }
 
-    public function show($slug)
+    public function show($id)
     {
-        $category = $this->categoryRepository->findBySlug($slug);
+        $category = $this->categoryRepository->findById($id);
+//        return $category;
 
         return view('site.pages.category', compact('category'));
+    }
+
+    public function listAll()
+    {
+
+        $category = $this->categoryRepository->findAll();
+
+        return view('site.pages.homepage', compact('category'));
     }
 }

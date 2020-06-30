@@ -19,6 +19,7 @@
                                 <th scope="col">First Name</th>
                                 <th scope="col">Last Name</th>
                                 <th scope="col">Order Amount</th>
+                                <th scope="col">Order Amount(Dollar)</th>
                                 <th scope="col">Qty.</th>
                                 <th scope="col">Status</th>
                             </tr>
@@ -30,6 +31,7 @@
                                     <td>{{ $order->first_name }}</td>
                                     <td>{{ $order->last_name }}</td>
                                     <td>{{ config('settings.currency_symbol') }}{{ round($order->grand_total, 2) }}</td>
+                                    <td>{{ config('settings.Dollar') }}{{ round($order->grand_total *  1.4389 , 2) }}</td>
                                     <td>{{ $order->item_count }}</td>
                                     <td><span class="badge badge-success">{{ strtoupper($order->status) }}</span></td>
                                 </tr>

@@ -2,6 +2,7 @@
 
 namespace App\Repositories;
 
+use App\Models\Category;
 use App\Models\Product;
 use App\Traits\UploadAble;
 use Illuminate\Http\UploadedFile;
@@ -131,5 +132,15 @@ class ProductRepository extends BaseRepository implements ProductContract
         $product = Product::where('slug', $slug)->first();
 
         return $product;
+    }
+
+
+    public function searchProduct($name)
+    {
+        return Category::with(["products" => function($q) use($name){
+            $q->where('products.name','like', '%'.$name.'%');
+        }])
+            ->where('menu', 1)
+            ->get();
     }
 }

@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
-use App\Contracts\BrandContract;
 use App\Contracts\CategoryContract;
 use App\Contracts\ProductContract;
 use App\Http\Controllers\BaseController;
@@ -11,19 +10,19 @@ use App\Http\Requests\StoreProductFormRequest;
 
 class ProductController extends BaseController
 {
-    protected $brandRepository;
+
 
     protected $categoryRepository;
 
     protected $productRepository;
 
     public function __construct(
-        BrandContract $brandRepository,
+
         CategoryContract $categoryRepository,
         ProductContract $productRepository
     )
     {
-        $this->brandRepository = $brandRepository;
+
         $this->categoryRepository = $categoryRepository;
         $this->productRepository = $productRepository;
     }
@@ -38,11 +37,11 @@ class ProductController extends BaseController
 
     public function create()
     {
-        $brands = $this->brandRepository->listBrands('name', 'asc');
+
         $categories = $this->categoryRepository->listCategories('name', 'asc');
 
         $this->setPageTitle('Products', 'Create Product');
-        return view('admin.products.create', compact('categories', 'brands'));
+        return view('admin.products.create', compact('categories'));
     }
 
     public function store(StoreProductFormRequest $request)
@@ -60,11 +59,10 @@ class ProductController extends BaseController
     public function edit($id)
     {
         $product = $this->productRepository->findProductById($id);
-        $brands = $this->brandRepository->listBrands('name', 'asc');
         $categories = $this->categoryRepository->listCategories('name', 'asc');
 
         $this->setPageTitle('Products', 'Edit Product');
-        return view('admin.products.edit', compact('categories', 'brands', 'product'));
+        return view('admin.products.edit', compact('categories', 'product'));
     }
 
     public function update(StoreProductFormRequest $request)

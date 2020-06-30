@@ -11,7 +11,7 @@ class SettingsTableSeeder extends Seeder
     protected $settings = [
         [
             'key'                       =>  'site_name',
-            'value'                     =>  'E-Commerce Application',
+            'value'                     =>  'Pizza Application',
         ],
         [
             'key'                       =>  'site_title',
@@ -23,11 +23,11 @@ class SettingsTableSeeder extends Seeder
         ],
         [
             'key'                       =>  'currency_code',
-            'value'                     =>  'GBP',
+            'value'                     =>  'EUR',
         ],
         [
             'key'                       =>  'currency_symbol',
-            'value'                     =>  '£',
+            'value'                     =>  '€',
         ],
         [
             'key'                       =>  'site_logo',
@@ -74,28 +74,8 @@ class SettingsTableSeeder extends Seeder
             'value'                     =>  '',
         ],
         [
-            'key'                       =>  'stripe_payment_method',
-            'value'                     =>  '',
-        ],
-        [
-            'key'                       =>  'stripe_key',
-            'value'                     =>  '',
-        ],
-        [
-            'key'                       =>  'stripe_secret_key',
-            'value'                     =>  '',
-        ],
-        [
-            'key'                       =>  'paypal_payment_method',
-            'value'                     =>  '',
-        ],
-        [
-            'key'                       =>  'paypal_client_id',
-            'value'                     =>  '',
-        ],
-        [
-            'key'                       =>  'paypal_secret_id',
-            'value'                     =>  '',
+            'key'                       =>  'Dollar',
+            'value'                     =>  '$',
         ],
     ];
 

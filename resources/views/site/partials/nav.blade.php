@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main_nav"
                 aria-controls="main_nav" aria-expanded="false" aria-label="Toggle navigation">
@@ -10,17 +10,12 @@
                     @foreach($cat->items as $category)
                         @if ($category->items->count() > 0)
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="{{ route('category.show', $category->slug) }}" id="{{ $category->slug }}"
+                                <a class="nav-link dropdown-toggle" href="{{ route('category.show', $category->id) }}" id="{{ $category->id }}"
                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ $category->name }}</a>
-                                <div class="dropdown-menu" aria-labelledby="{{ $category->slug }}">
-                                    @foreach($category->items as $item)
-                                        <a class="dropdown-item" href="{{ route('category.show', $item->slug) }}">{{ $item->name }}</a>
-                                    @endforeach
-                                </div>
                             </li>
                         @else
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('category.show', $category->slug) }}">{{ $category->name }}</a>
+                                <a class="nav-link" href="{{ route('category.show', $category->id) }}">{{ $category->name }}</a>
                             </li>
                         @endif
                     @endforeach

@@ -10,9 +10,9 @@
                     </div>
                 </div>
                 <div class="col-lg-6 col-sm-6">
-                    <form action="#" class="search-wrap">
+                    <form action="{{ route('product.search') }}" class="search-wrap">
                         <div class="input-group">
-                            <input type="text" class="form-control" placeholder="Search">
+                            <input name="search_name" type="text" class="form-control" placeholder="Search">
                             <div class="input-group-append">
                                 <button class="btn btn-primary" type="submit">
                                     <i class="fa fa-search"></i>
@@ -23,7 +23,7 @@
                 </div>
                 <div class="col-lg-3 col-sm-6">
                     <div class="widgets-wrap d-flex justify-content-end">
-                        <div class="widget-header">
+                        <div class="widget-header" id="cart-details">
                             <a href="{{ route('checkout.cart') }}" class="icontext">
                                 <div class="icon-wrap icon-xs bg2 round text-secondary"><i
                                         class="fa fa-shopping-cart"></i></div>

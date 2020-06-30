@@ -22,23 +22,7 @@ class PayPalService
 
     public function __construct()
     {
-        if (config('settings.paypal_client_id') == '' || config('settings.paypal_secret_id') == '') {
-            return redirect()->back()->with('error', 'No PayPal settings found.');
-        }
 
-        $this->payPal = new ApiContext(
-            new OAuthTokenCredential(
-                config('settings.paypal_client_id'),
-                config('settings.paypal_secret_id')
-            )
-        );
-
-        // To use PayPal in live mode you have to add
-        // the below, I prefer to use the sandbox mode only.
-
-        //$this->payPal->setConfig(
-        //    array('mode'  =>  'live')
-        //);
     }
 
     public function processPayment($order)

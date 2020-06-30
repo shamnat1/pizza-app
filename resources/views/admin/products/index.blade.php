@@ -19,7 +19,6 @@
                             <th> # </th>
                             <th> SKU </th>
                             <th> Name </th>
-                            <th class="text-center"> Brand </th>
                             <th class="text-center"> Categories </th>
                             <th class="text-center"> Price </th>
                             <th class="text-center"> Status </th>
@@ -32,7 +31,6 @@
                                     <td>{{ $product->id }}</td>
                                     <td>{{ $product->sku }}</td>
                                     <td>{{ $product->name }}</td>
-                                    <td>{{ $product->brand->name }}</td>
                                     <td>
                                         @foreach($product->categories as $category)
                                             <span class="badge badge-info">{{ $category->name }}</span>

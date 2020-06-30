@@ -16,8 +16,8 @@ class Product extends Model
      * @var array
      */
     protected $fillable = [
-        'brand_id', 'sku', 'name', 'slug', 'description', 'quantity',
-        'weight', 'price', 'sale_price', 'status', 'featured',
+         'sku', 'name', 'slug', 'description', 'quantity',
+         'price', 'sale_price', 'status', 'featured',
     ];
 
     /**
@@ -25,7 +25,6 @@ class Product extends Model
      */
     protected $casts = [
         'quantity'  =>  'integer',
-        'brand_id'  =>  'integer',
         'status'    =>  'boolean',
         'featured'  =>  'boolean'
     ];
@@ -55,13 +54,7 @@ class Product extends Model
         return $this->hasMany(ProductImage::class);
     }
 
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
-    public function brand()
-    {
-        return $this->belongsTo(Brand::class);
-    }
+
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany

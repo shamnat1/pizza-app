@@ -20,9 +20,9 @@ class ProductController extends Controller
         $this->attributeRepository = $attributeRepository;
     }
 
-    public function show($slug)
+    public function show($id)
     {
-        $product = $this->productRepository->findProductBySlug($slug);
+        $product = $this->productRepository->findProductById($id);
         $attributes = $this->attributeRepository->listAttributes();
 
         return view('site.pages.product', compact('product', 'attributes'));
@@ -32,9 +32,16 @@ class ProductController extends Controller
     {
         $product = $this->productRepository->findProductById($request->input('productId'));
         $options = $request->except('_token', 'productId', 'price', 'qty');
-
-        Cart::add(uniqid(), $product->name, $request->input('price'), $request->input('qty'), $options);
-
-        return redirect()->back()->with('message', 'Item added to cart successfully.');
+//        Cart::add(uniqid(), $product->name, $request->input('price'), $request->input('qty'), $options);
+        Cart::add($product->sku, $product->name, $product->price, $request->input('qty'), $options);
+        return response()->json(['msg' => 'Item added to cart successfully']);
+//        return redirect()->back()->with('message', 'Item added to cart successfully.');
     }
+
+    public function searchProduct(Request $request){
+        $category = $this->productRepository->searchProduct($request->get("search_name"));
+        return view('site.pages.homepage', compact('category'));
+        return $request->get("search_name");
+    }
+
 }
