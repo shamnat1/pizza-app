@@ -70,5 +70,10 @@
             </div>
         </div>
     </section>
-    @include('site.partials.nav')
+
 </header>
+@include('site.partials.nav')
+
+@push('scripts')
+
+@endpush

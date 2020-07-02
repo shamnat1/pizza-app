@@ -7,6 +7,7 @@ use App\Models\Order;
 use Illuminate\Http\Request;
 use App\Contracts\OrderContract;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\orderRequest;
 
 class CheckoutController extends Controller
 {
@@ -25,14 +26,14 @@ class CheckoutController extends Controller
         return view('site.pages.checkout');
     }
 
-    public function placeOrder(Request $request)
+    public function placeOrder(orderRequest $request)
     {
-        // Before storing the order we should implement the
-        // request validation which I leave it to you
+
+        return "ggg";
         $order = $this->orderRepository->storeOrderDetails($request->all());
 
 
-        // You can add more control here to handle if the order is not stored properly
+
         if ($order) {
 
             Cart::clear();
